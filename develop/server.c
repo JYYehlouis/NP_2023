@@ -1,20 +1,5 @@
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include <sqlite3.h>
-// or use log (may be slower)
-
-// Network libraries
-#include <arpa/inet.h>
-#include <sys/socket.h>
-#include <sys/signal.h>
-
 // MY LIB
 #include "lib.h"
-
-void handle_alarm(int signo) {}
 
 /*
     closeDB(database);
@@ -32,6 +17,8 @@ void * gameLogin(void * arg) {
 
 
     // start doing
+
+    return NULL;
 }
 
 int main() {
@@ -50,10 +37,11 @@ int main() {
     servaddr.sin_family      = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servaddr.sin_port        = htons(SERV_PORT);
-    bind(listenfd, (struct sockaddr_in *) &servaddr, sizeof(servaddr));
+    bind(listenfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
     listen(listenfd, LISTENQ);
 
     int *communfd, *id;
+    data *pdata;
     char get[MAXLINE];
     sqlite3 *database;
     pthread_t *singleThread;    
@@ -73,12 +61,13 @@ int main() {
 
         // id number will be the valid way to check if you are the owner to the account
         id = (int *)malloc(sizeof(int));
-        *id = generateID();
+        *id = generateID(connfd);
         // connfd number        
         communfd = (int *)malloc(sizeof(int));
         *communfd = connfd;
         // Once press submit, the data will be sent
-
+        pdata = (data *)malloc(sizeof(data));
+        pdata->id = 
         singleThread = (pthread_t *)malloc(sizeof(pthread_t));
         pthread_create(singleThread, 0, gameLogin, (void *) communfd);    
     }

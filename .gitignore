@@ -1,0 +1,9 @@
+# ignore personal setting
+.vscode/
+
+# ignore a.out
+*.out
+
+# test.c
+serv_test.c
+cli_test.c
