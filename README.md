@@ -27,6 +27,7 @@
 7. Before working on this repo, it is a good habit to check if you are using the latest repo, using the command below to update all your files.
 
 ```git fetch origin && git pull```
+
 8. Using the following command if you have to work on some specific branch,
 
 ```git switch <branch-name>```
@@ -52,9 +53,3 @@
 3. Maybe we should have a menu that we can enter the player information (not complete), the menu of the online users (not complete), and the one that 2 players are playing (almost complete)
 
 ### Complete (git log to see the progress)
-
-- 
-
-- 
-
-- 
