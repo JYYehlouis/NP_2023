@@ -5,5 +5,5 @@
 *.out
 
 # test.c
-serv_test.c
-cli_test.c
+# serv_test.c
+# cli_test.c

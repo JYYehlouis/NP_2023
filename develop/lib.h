@@ -42,7 +42,7 @@ int IDs[__INT_MAX__];
 
 void serverInit() {
     memset(IDs, 0, __INT_MAX__);
-    IDS[0] = -1;
+    IDs[0] = -1;
 }
 
 
@@ -97,7 +97,7 @@ void clientStart(int sockfd) {
     while (1) {
         int n;
         printf("Name: ");
-        while ( ( n = read(STDIN_FILENO, name, sizeof(name)) ) <= 1 ) )  {
+        while ( ( n = read(STDIN_FILENO, name, sizeof(name)) ) <= 1 ) {
             if ( n <= 0 ) {
                 printf("Login failed!\n");
                 return;
@@ -127,7 +127,7 @@ void clientStart(int sockfd) {
 
         printf("Personal ID (If you are new to the game, press -1 to create player info): ");
         while (1) {
-            n = read(STDIN_FILENO, getid, sizeof(getid))
+            n = read(STDIN_FILENO, getid, sizeof(getid));
             if ( n <= 0 ) {
                 printf("Login failed!\n");
                 return;
@@ -143,7 +143,7 @@ void clientStart(int sockfd) {
                 printf("Personal ID: ");
             } else if ( number == -1 ) { 
                 printf("You are a new player to this game! Requesting for a unique id ...\n");
-                sprintf(send, REQUESTID)
+                sprintf(send, REQUESTID);
                 write(sockfd, send, sizeof(send));
                 read(sockfd, getid, sizeof(getid));
                 printf("Welcome! Your id: %s\n", getid);
