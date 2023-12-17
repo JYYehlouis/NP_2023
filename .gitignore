@@ -1,5 +1,6 @@
 # ignore personal setting
 .vscode/
+test/
 
 # ignore a.out
 *.out

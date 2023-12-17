@@ -27,4 +27,6 @@ int main() {
             if ( errno == EWOULDBLOCK ) { continue; }
         }
     }
+
+    return 0;
 }
